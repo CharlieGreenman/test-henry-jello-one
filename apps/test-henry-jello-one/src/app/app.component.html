@@ -1,5 +1,21 @@
+<test-henry-jello-one-global-header
+  (sideNavToggle)="sideNavToggle()"
+></test-henry-jello-one-global-header>
 <div class="wrapper">
   <div class="container">
-    
+    <test-henry-jello-one-global-sidenav [opened]="sideNavOpen">
+      <mat-nav-list sidenav>
+        <a
+          mat-list-item
+          routerLinkActive="active-link"
+          routerLink="/"
+          (click)="sideNavToggle()"
+        >
+          <span class="App__sidenav-text">Home</span>
+        </a>
+      </mat-nav-list>
+      <router-outlet></router-outlet>
+    </test-henry-jello-one-global-sidenav>
   </div>
 </div>
+<test-henry-jello-one-global-footer> </test-henry-jello-one-global-footer>
