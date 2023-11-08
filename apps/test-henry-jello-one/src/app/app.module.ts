@@ -8,10 +8,17 @@ import { GlobalHeaderComponentModule } from "@test-henry-jello-one/common/ui";
 import { GlobalFooterModule } from "@test-henry-jello-one/common/ui";
 import { GlobalSidenavModule } from "@test-henry-jello-one/common/ui";
 import { MatListModule } from "@angular/material/list";
+import { StoreDevtoolsModule } from "@ngrx/store-devtools";
+import { StoreModule } from "@ngrx/store";
+import { environment } from "@test-henry-jello-one/common/common-environment";
 
 @NgModule({
   declarations: [AppComponent],
-  imports: [BrowserModule, BrowserAnimationsModule, AppRoutingModule, GlobalHeaderComponentModule, GlobalFooterModule, GlobalSidenavModule, MatListModule],
+  imports: [BrowserModule, BrowserAnimationsModule, AppRoutingModule, GlobalHeaderComponentModule, GlobalFooterModule, GlobalSidenavModule, MatListModule, StoreModule.forRoot({}), StoreDevtoolsModule.instrument({
+    maxAge: 25, // Retains last 25 states
+    logOnly: environment.production, // Restrict extension to log-only mode
+    autoPause: true, // Pauses recording actions and state changes when the extension window is not open
+  }),],
   providers: [],
   bootstrap: [AppComponent],
 })
