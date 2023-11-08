@@ -41,6 +41,9 @@
       ],
       "@test-henry-jello-one/data-graphql": [
         "libs/data-graphql/src/index.ts"
+      ],
+      "@test-henry-jello-one/data-models": [
+        "libs/data-models/src/index.ts"
       ]
     }
   },
