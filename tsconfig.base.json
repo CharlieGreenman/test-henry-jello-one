@@ -23,6 +23,9 @@
       ],
       "@test-henry-jello-one/common/ui": [
         "libs/common/ui/src/index.ts"
+      ],
+      "@test-henry-jello-one/home": [
+        "libs/home/src/index.ts"
       ]
     }
   },
