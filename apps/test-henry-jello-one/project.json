@@ -1,0 +1,95 @@
+{
+  "name": "test-henry-jello-one",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "projectType": "application",
+  "sourceRoot": "apps/test-henry-jello-one/src",
+  "prefix": "test-henry-jello-one",
+  "targets": {
+    "build": {
+      "executor": "@angular-devkit/build-angular:browser",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/apps/test-henry-jello-one",
+        "index": "apps/test-henry-jello-one/src/index.html",
+        "main": "apps/test-henry-jello-one/src/main.ts",
+        "polyfills": "apps/test-henry-jello-one/src/polyfills.ts",
+        "tsConfig": "apps/test-henry-jello-one/tsconfig.app.json",
+        "inlineStyleLanguage": "scss",
+        "assets": [
+          "apps/test-henry-jello-one/src/favicon.ico",
+          "apps/test-henry-jello-one/src/assets"
+        ],
+        "styles": ["apps/test-henry-jello-one/src/styles.scss"],
+        "scripts": []
+      },
+      "configurations": {
+        "production": {
+          "budgets": [
+            {
+              "type": "initial",
+              "maximumWarning": "500kb",
+              "maximumError": "1mb"
+            },
+            {
+              "type": "anyComponentStyle",
+              "maximumWarning": "2kb",
+              "maximumError": "4kb"
+            }
+          ],
+          "fileReplacements": [
+            {
+              "replace": "apps/test-henry-jello-one/src/environments/environment.ts",
+              "with": "apps/test-henry-jello-one/src/environments/environment.prod.ts"
+            }
+          ],
+          "outputHashing": "all"
+        },
+        "development": {
+          "buildOptimizer": false,
+          "optimization": false,
+          "vendorChunk": true,
+          "extractLicenses": false,
+          "sourceMap": true,
+          "namedChunks": true
+        }
+      },
+      "defaultConfiguration": "production"
+    },
+    "serve": {
+      "executor": "@angular-devkit/build-angular:dev-server",
+      "configurations": {
+        "production": {
+          "browserTarget": "test-henry-jello-one:build:production"
+        },
+        "development": {
+          "browserTarget": "test-henry-jello-one:build:development"
+        }
+      },
+      "defaultConfiguration": "development"
+    },
+    "extract-i18n": {
+      "executor": "@angular-devkit/build-angular:extract-i18n",
+      "options": {
+        "browserTarget": "test-henry-jello-one:build"
+      }
+    },
+    "lint": {
+      "executor": "@nx/linter:eslint",
+      "options": {
+        "lintFilePatterns": [
+          "apps/test-henry-jello-one/src/**/*.ts",
+          "apps/test-henry-jello-one/src/**/*.html"
+        ]
+      }
+    },
+    "test": {
+      "executor": "@nx/jest:jest",
+      "outputs": ["{workspaceRoot}/coverage/apps/test-henry-jello-one"],
+      "options": {
+        "jestConfig": "apps/test-henry-jello-one/jest.config.ts",
+        "passWithNoTests": true
+      }
+    }
+  },
+  "tags": []
+}
