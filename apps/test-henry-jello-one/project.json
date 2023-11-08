@@ -7,7 +7,9 @@
   "targets": {
     "build": {
       "executor": "@angular-devkit/build-angular:browser",
-      "outputs": ["{options.outputPath}"],
+      "outputs": [
+        "{options.outputPath}"
+      ],
       "options": {
         "outputPath": "dist/apps/test-henry-jello-one",
         "index": "apps/test-henry-jello-one/src/index.html",
@@ -19,7 +21,9 @@
           "apps/test-henry-jello-one/src/favicon.ico",
           "apps/test-henry-jello-one/src/assets"
         ],
-        "styles": ["apps/test-henry-jello-one/src/styles.scss"],
+        "styles": [
+          "apps/test-henry-jello-one/src/styles.scss"
+        ],
         "scripts": []
       },
       "configurations": {
@@ -38,8 +42,8 @@
           ],
           "fileReplacements": [
             {
-              "replace": "apps/test-henry-jello-one/src/environments/environment.ts",
-              "with": "apps/test-henry-jello-one/src/environments/environment.prod.ts"
+              "replace": "libs/common/environments/src/lib/environment.ts",
+              "with": "libs/common/environments/src/lib/environment.prod.ts"
             }
           ],
           "outputHashing": "all"
@@ -84,7 +88,9 @@
     },
     "test": {
       "executor": "@nx/jest:jest",
-      "outputs": ["{workspaceRoot}/coverage/apps/test-henry-jello-one"],
+      "outputs": [
+        "{workspaceRoot}/coverage/apps/test-henry-jello-one"
+      ],
       "options": {
         "jestConfig": "apps/test-henry-jello-one/jest.config.ts",
         "passWithNoTests": true
